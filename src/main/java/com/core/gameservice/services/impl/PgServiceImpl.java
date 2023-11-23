@@ -41,8 +41,8 @@ public class PgServiceImpl implements PgService {
 try{
         GetWalletRequest walletRequest = new GetWalletRequest();
         walletRequest.setUsername(pgLoginRequest.getUsername());
-
-        WalletResponse user = walletClient.getWallet(walletRequest);
+    PartnerLoginResponse partnerLoginResponse = pgClient.pgLogin(pgLoginRequest);
+    WalletResponse user = walletClient.getWallet(walletRequest);
 
         if (user == null) {
             throw new RuntimeException("Failed to get user from wallet");
