@@ -1,12 +1,21 @@
 package com.core.gameservice.entity;
 
-import javax.persistence.*;
+import com.core.gameservice.enums.Status;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "agent_game")
 public class AgentGame {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,10 +30,10 @@ public class AgentGame {
     private String userType;
 
     @Column(nullable = false)
-    private Double rate;
+    private double rate;
 
     @Column(nullable = false)
-    private Double rateLimit;
+    private double rateLimit;
 
     @Column(nullable = false, length = 100)
     private String productId;
@@ -32,25 +41,17 @@ public class AgentGame {
     @Column(length = 100)
     private String provider;
 
-    @Column(nullable = false)
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column(nullable = false)
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     @Enumerated(EnumType.STRING)
-    @Column(length = 2)
+    @Column(nullable = false, columnDefinition = "ENUM('A','C') default 'A'")
     private Status status;
 
     @Column(length = 100)
     private String note;
 
-    // Constructors, getters, setters, and other methods
-
-    public enum Status {
-        A, // Assuming 'A' stands for Active
-        C  // Assuming 'C' stands for Closed
-    }
-
-    // Constructor, Getters, Setters, and other methods
 }

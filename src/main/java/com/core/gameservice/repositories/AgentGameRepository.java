@@ -12,5 +12,6 @@ public interface AgentGameRepository extends JpaRepository<AgentGame, Long> { //
     // Custom query method to find AgentGames by username, status, and productId
     List<AgentGame> findAllByUsernameAndStatusAndProductId(String username, String status, String productId);
 
+
     // Other query methods as required
 }

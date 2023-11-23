@@ -1,39 +1,16 @@
 package com.core.gameservice.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class PgLoginRequest {
 
     private String username;
     private String password;
-    // Additional fields as needed, like 'email' or 'securityToken'
-
-    // Default constructor
-    public PgLoginRequest() {
-    }
-
-    // Constructor with parameters
-    public PgLoginRequest(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    // Getters and setters
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    // Additional getters and setters for other fields
-
-    // Override toString(), equals(), and hashCode() methods if necessary
 }
